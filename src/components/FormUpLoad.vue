@@ -7,7 +7,7 @@
         :accept="accept"
         :on-change="handleUpload"
         :file-list="fileList"
-        action="#">
+        :action="action">
       <el-button type="primary" plain size="medium">上传</el-button>
     </el-upload>
     <div class="file-tooltip" v-if="fileList.length===0">{{tooltip}}</div>
@@ -24,7 +24,11 @@ export default {
   props:{
     accept:String,
     tooltip:String,
-    fileCheck:Function
+    fileCheck:Function,
+    action:{
+      type:String,
+      default:'#'
+    }
   },
   data(){
     return{
