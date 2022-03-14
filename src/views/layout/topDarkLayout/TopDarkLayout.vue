@@ -89,6 +89,6 @@ export default {
 }
 
 .login-user {
-color: #00cd38;
+color: #2681ff;
 }
 </style>

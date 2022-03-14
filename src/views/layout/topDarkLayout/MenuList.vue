@@ -4,7 +4,7 @@
       @select="handleSelect"
       class="nav-middle"
       background-color="#171b22"
-      active-text-color="#00cd38"
+      active-text-color="#2681ff"
       text-color="#d2d1d1"
       mode="horizontal"
   >
