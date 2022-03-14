@@ -60,7 +60,7 @@ export default {
 .el-container {
   height: 100%;
   color: #f6f6f6;
-  background-color: #1b2234;
+  background-color: #171b22;
 }
 
 .el-header {
@@ -68,7 +68,7 @@ export default {
   /*box-shadow: 0 2px 13px 0 #dcdcdc;*/
   display: flex;
   align-items: center;
-  background-color: #171b22;
+  background-color: #1b2234;
 }
 
 .top-logo {
@@ -83,12 +83,12 @@ export default {
 }
 
 .el-main {
-  background-color: #171b22;
+  background-color: #1b2234;
   margin: 12px;
   border-radius: 8px;
 }
 
 .login-user {
-color: #2681ff;
+color: #fac700;
 }
 </style>

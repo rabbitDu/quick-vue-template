@@ -3,8 +3,8 @@
       :default-active="activeIndex"
       @select="handleSelect"
       class="nav-middle"
-      background-color="#171b22"
-      active-text-color="#2681ff"
+      background-color="#1b2234"
+      active-text-color="#fac700"
       text-color="#d2d1d1"
       mode="horizontal"
   >
