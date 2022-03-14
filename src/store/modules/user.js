@@ -75,17 +75,6 @@ const user = {
             commit('SET_ROLES', [])
             commit('SET_PERMISSIONS', [])
             removeToken()
-            // return new Promise((resolve, reject) => {
-            //   logout(state.token).then(() => {
-            //     commit('SET_TOKEN', '')
-            //     commit('SET_ROLES', [])
-            //     commit('SET_PERMISSIONS', [])
-            //     removeToken()
-            //     resolve()
-            //   }).catch(error => {
-            //     reject(error)
-            //   })
-            // })
         },
 
         // 前端 登出

@@ -37,7 +37,6 @@
 
 <script>
 import Cookies from "js-cookie";
-import {login} from "../../api/login"
 import logo from "@/assets/images/logo.png"
 
 
