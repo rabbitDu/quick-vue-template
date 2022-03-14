@@ -103,5 +103,8 @@ export default {
 
 .side-bottom {
   text-align: center;
+  position: fixed;
+  bottom: 10px;
+  left: 60px;
 }
 </style>
