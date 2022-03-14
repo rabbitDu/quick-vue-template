@@ -16,6 +16,8 @@
     "vue-echarts": "^5.0.0-beta.0",
     "font-awesome": "^4.7.0",
     "vue-router": "^3.2.0",
+    "js-cookie": "2.2.1",
+    "jsencrypt": "3.0.0-rc.1",
     "xlsx": "^0.17.2",
     "xlsx-style": "^0.8.13",
     "element-ui": "^2.15.6"
