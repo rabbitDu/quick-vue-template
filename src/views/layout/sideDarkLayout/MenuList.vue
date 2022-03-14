@@ -49,4 +49,8 @@ export default {
   background-color: #3580ff4f !important;
   border-radius: 12px;
 }
+::v-deep .el-menu-item.is-active{
+  background-color: #3580ff4f !important;
+  border-radius: 12px;
+}
 </style>
