@@ -8,7 +8,7 @@
         :on-change="handleUpload"
         :file-list="fileList"
         :action="action">
-      <el-button type="primary" plain size="medium">上传</el-button>
+      <el-button type="primary" plain :size="size">上传</el-button>
     </el-upload>
     <div class="file-tooltip" v-if="fileList.length===0">{{tooltip}}</div>
     <div class="file-list" v-for="(file,index) in fileList" :key="index">
@@ -28,6 +28,10 @@ export default {
     action:{
       type:String,
       default:'#'
+    },
+    size:{
+      type:String,
+      default:'small'
     }
   },
   data(){
@@ -78,6 +82,7 @@ export default {
   justify-content: space-between;
   padding: 0 10px;
   border-radius: 5px;
+  font-size: 14px;
 }
 
 .file-list .file-icon {
