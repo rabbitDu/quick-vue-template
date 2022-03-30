@@ -11,12 +11,15 @@ import Element from 'element-ui';
 import FormUpLoad from "./components/FormUpLoad";
 import * as echarts from 'echarts';
 import ElEcharts from "./components/ElEcharts";
-
+import RtTable from "./components/RtTable";
+import TablePageAfter from "./components/TablePageAfter";
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 
 Vue.component('el-chart', ElEcharts)
 Vue.component('form-upload', FormUpLoad)
+Vue.component('rt-table', RtTable)
+Vue.component('table-page-after', TablePageAfter)
 
 Vue.use(Element)
 new Vue({

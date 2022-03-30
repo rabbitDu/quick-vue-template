@@ -2,7 +2,7 @@
 <template>
   <div class="wrapper">
     <el-table
-        :data="currentRows"
+        :data="tableData"
         style="width: 100%"
         v-on="$listeners"
         v-bind="$attrs"
@@ -34,13 +34,12 @@
     </el-table>
     <el-pagination
         background
-        class="page-wrapper"
         v-if="isPaging"
         :page-sizes="pageSizes"
-        :page-size="pageSize"
+        :page-size.sync="pageSize"
         :current-page.sync="currentPage"
         layout="->,total, sizes, prev, pager, next, jumper"
-        :total="tableData.length"
+        :total="total"
         @current-change="handleCurrentChange"
         @size-change="handleSizeChange"
     >
@@ -51,7 +50,7 @@
 
 <script>
 export default {
-  name: "RtTable",
+  name: "TablePageAfter",
   props: {
     //表格数据
     tableData: {
@@ -71,6 +70,13 @@ export default {
         return 12;
       }
     },
+    //
+    currentPage:{
+      type: Number,
+      default() {
+        return 1;
+      }
+    },
     //是否分页
     isPaging: {
       type: Boolean,
@@ -84,35 +90,35 @@ export default {
     //列
     columns: {
       type: Array
+    },
+    total:{
+      type: Number,
+      required:true
     }
   },
   data() {
     return {
-      currentPage: 1,  //当前页码
-      tablePageSize: this.pageSize
     }
   },
-  computed: {
-    currentRows() {
-      const tablePageSize = this.tablePageSize;
-      if (this.tableData) {
-        const tableLength = this.tableData.length;
-        const start = (this.currentPage - 1) * tablePageSize;
-        const end = (this.currentPage * tablePageSize > tableLength) ? tableLength : this.currentPage * tablePageSize;
-        return this.tableData.slice(start, end)
+  watch: {
+    currentPage(value) {
+      if (value) {
+      this.$emit("currentChange",value,this.pageSize)
       }
     },
+    pageSize(value) {
+      if (value) {
+        this.currentPage = 0;
+        this.$nextTick(() => {
+          this.currentPage = 1;
+        }, 100)
+      }
+    }
   },
   methods: {
-    handleNextClick(value) {
-      this.currentPage = value
-    },
-    handlePrevClick(value) {
-      this.currentPage = value
-    },
     handleSizeChange(value) {
       this.currentPage = 1;
-      this.tablePageSize = value
+      this.pageSize = value
     },
     handleCurrentChange(val) {
       this.currentPage = val
