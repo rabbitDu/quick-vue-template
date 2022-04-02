@@ -1,0 +1,35 @@
+// cover some element-ui styles
+
+
+.el-table {
+  font-size: 14px;
+  color: #2D4361;
+  border: 1px solid #DCE2EA;
+  border-radius: 4px 4px 0px 0px;
+
+  td, th {
+    padding: 10px 0;
+    border-bottom: 1px solid #e7eaec;
+  }
+
+  .el-table__header-wrapper, .el-table__fixed-header-wrapper {
+    th {
+      word-break: break-word;
+      font-size: 13px;
+      border-radius: 4px 4px 0 0;
+      background-color: #FAFAFA;
+      color: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  .el-table__body-wrapper {
+    .el-button [class*="el-icon-"] + span {
+      margin-left: 1px;
+    }
+  }
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+  background: #F2FBFF;
+}
+
