@@ -6,9 +6,10 @@ const user = {
     state: {
         token: getToken(),
         name: '',
+        nickName: '',
         roles: [],
         permissions: [],
-        user: null
+        user: null //用户整体的信息
     },
 
     mutations: {
@@ -21,6 +22,9 @@ const user = {
         SET_NAME: (state, name) => {
             state.name = name
         },
+        SET_NICK_NAME: (state, name) => {
+            state.nickName = name
+        },
         SET_ROLES: (state, roles) => {
             state.roles = roles
         },
@@ -28,7 +32,7 @@ const user = {
             state.permissions = permissions
         }
     },
-
+    //有异步的方法
     actions: {
         // 登录
         Login({commit}, userInfo) {
@@ -38,12 +42,16 @@ const user = {
                 //调用登录接口
                 resolve()
                 setToken('dssdsdedffsdfsdfd')
+                //todo
                 //等到有登录接口时，再打开这段代码就行了
                 // login(username, password).then(res => {
                 //     setToken(res.token)
                 //     commit('SET_TOKEN', res.token)
                 //     commit('SET_ROLES', res.user.roles)
                 //     commit('SET_USER', res.user)
+                //     commit('SET_NAME', res.user.userName)
+                //     commit('SET_NICK_NAME', res.user.nickName)
+                //     commit('SET_PERMISSIONS', res.permissions)
                 //     resolve()
                 // }).catch(error => {
                 //     reject(error)
@@ -62,6 +70,9 @@ const user = {
                         commit('SET_ROLES', ['ROLE_DEFAULT'])
                     }
                     commit('SET_USER', user)
+                    commit('SET_NAME', res.user.userName)
+                    commit('SET_NICK_NAME', res.user.nickName)
+                    commit('SET_PERMISSIONS', res.permissions)
                     resolve(res)
                 }).catch(error => {
                     reject(error)
@@ -73,6 +84,8 @@ const user = {
         LogOut({commit, state}) {
             commit('SET_TOKEN', '')
             commit('SET_ROLES', [])
+            commit('SET_NAME', null)
+            commit('SET_NICK_NAME', null)
             commit('SET_PERMISSIONS', [])
             removeToken()
         },

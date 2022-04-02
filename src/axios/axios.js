@@ -11,6 +11,7 @@ const service = axios.create({
 })
 // request拦截器  一般是拦截未登录验证的请求
 service.interceptors.request.use(config => {
+    debugger
     // 是否需要设置 token
     const isToken = (config.headers || {}).isToken === false
     if (getToken() && !isToken) {
@@ -40,10 +41,12 @@ service.interceptors.request.use(config => {
     }
     return config
 }, error => {
-//todo
+    console.log(error)
+    Promise.reject(error)
 })
 
 // 响应拦截器
+const m = Message;
 service.interceptors.response.use(res => {
         // 未设置状态码则默认成功状态
         const code = res.data.code || 200;
@@ -62,7 +65,7 @@ service.interceptors.response.use(res => {
             }).catch(() => {
             });
         } else if (code === 500) {
-            Message({
+            m({
                 message: msg,
                 type: 'error'
             })
@@ -86,7 +89,7 @@ service.interceptors.response.use(res => {
         } else if (message.includes("Request failed with status code")) {
             message = "系统接口" + message.substr(message.length - 3) + "异常";
         }
-        Message({
+        m({
             message: message,
             type: 'error',
             duration: 5 * 1000
