@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '../store'
 import {routes} from "./routers";
-import {getToken} from '@/utils/auth'
+import {getToken} from '../utils/auth'
 import {Notification, MessageBox, Message} from 'element-ui'
 Vue.use(VueRouter)
 

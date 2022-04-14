@@ -1,6 +1,20 @@
+'use strict'
+const path = require('path')
+function resolve(dir) {
+    return path.join(__dirname, dir)
+}
+const name = '系统名称' // 网页标题
 module.exports = {
     publicPath: '',
     productionSourceMap: true,
+    configureWebpack: {
+        name: name,
+        resolve: {
+            alias: {
+                '@': resolve('src')
+            }
+        }
+    },
     // css: {
     //     loaderOptions: {
     //         sass: {

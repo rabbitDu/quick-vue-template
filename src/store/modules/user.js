@@ -1,5 +1,5 @@
-import {login, logout, getInfo} from '@/api/login'
-import {getToken, setToken, removeToken} from '@/utils/auth'
+import {login, logout, getInfo} from '../../api/login'
+import {getToken, setToken, removeToken} from '../../utils/auth'
 import User from "../user";
 
 const user = {
@@ -62,21 +62,22 @@ const user = {
         // 获取用户信息
         GetInfo({commit, state}) {
             return new Promise((resolve, reject) => {
-                getInfo().then(res => {
-                    const user = res.user
-                    if (res.roles && res.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-                        commit('SET_ROLES', user.roles)
-                    } else {
-                        commit('SET_ROLES', ['ROLE_DEFAULT'])
-                    }
-                    commit('SET_USER', user)
-                    commit('SET_NAME', res.user.userName)
-                    commit('SET_NICK_NAME', res.user.nickName)
-                    commit('SET_PERMISSIONS', res.permissions)
-                    resolve(res)
-                }).catch(error => {
-                    reject(error)
-                })
+                resolve()
+                // getInfo().then(res => {
+                //     const user = res.user
+                //     if (res.roles && res.roles.length > 0) { // 验证返回的roles是否是一个非空数组
+                //         commit('SET_ROLES', user.roles)
+                //     } else {
+                //         commit('SET_ROLES', ['ROLE_DEFAULT'])
+                //     }
+                //     commit('SET_USER', user)
+                //     commit('SET_NAME', res.user.userName)
+                //     commit('SET_NICK_NAME', res.user.nickName)
+                //     commit('SET_PERMISSIONS', res.permissions)
+                //     resolve(res)
+                // }).catch(error => {
+                //     reject(error)
+                // })
             })
         },
 
