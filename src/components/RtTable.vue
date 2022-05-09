@@ -1,4 +1,4 @@
-<!--重新封装表格-->
+<!--表格-前端分页-->
 <template>
   <div class="wrapper">
     <el-table
